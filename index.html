@@ -1,59 +1,158 @@
-<!-- This code is kinda shit, but works. -->
+<!-- This code is awesome, and works. -->
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Linkfree</title>
-        <script>
-            function getOutput() { 
-                // Text
-                let title = document.getElementById('title').value;
-                let short_description = document.getElementById('short_description').value;
-                let description = document.getElementById('description').value;
-                let author = document.getElementById('author').value;
-                let img_alt = document.getElementById('img_alt').value;
-                // Colors
-                let foreground_color = document.getElementById('foreground_color').value;
-                let button_color = document.getElementById('button_color').value;
-                let shadow_color = document.getElementById('shadow_color').value;
-                let background_color = document.getElementById('background_color').value;
-                // Links
-                let textbox_lines = document.getElementById('text_area').value.split(['\n']);
-                let link_urls = [];
-                let link_titles = [];
-                let links = '';
-                for (let i = 0; i < textbox_lines.length; i++) {
-                    link_titles[i] = textbox_lines[i].split([': '])[0];
-                    link_urls[i] = textbox_lines[i].split([': '])[1];
-                    links += `<a class="button" href="${link_urls[i]}">${link_titles[i]}</a>`;
-                }
-                document.getElementById('output').innerHTML = `<h2>Done! Create a directory with your image as avatar.webp, your little icon as favicon.ico and the following has your index.html</h2><br>`;
-                document.getElementById('output').innerText += `<!DOCTYPE html><html lang=en><meta charset=utf-8><title>${title}</title><meta content=${short_description} name=description><meta content=${author} name=author><meta content="width=device-width,initial-scale=1"name=viewport><link href=favicon.ico rel=icon type=image/ico><style>.button{display:inline-block;text-decoration:none;font-size:18px;width:300px;margin-bottom:1rem;font-weight:700;line-height:48px;letter-spacing:.1px;white-space:wrap;border-radius:8px;cursor:pointer;color:${foreground_color};background-color:${button_color};box-shadow:0 5px 0 ${shadow_color}}.button:active{box-shadow:none;transform:translateY(5px)}.container{position:relative;width:100%;max-width:600px;text-align:center;margin:0 auto;padding:0 20px;box-sizing:border-box}@media(min-width:400px){.container{width:85%;padding:0}}@media(min-width:550px){.container{width:80%}.column{margin-left:0}.column:first-child{margin-left:0}}html{font-size:100%;display:flex;align-items:center;justify-content:center;color-scheme:dark;height:100%;display:flex;align-items:center;justify-content:center}body{font-size:18px;line-height:24px;font-weight:400;background-color:${background_color};font-family:"Open Sans",HelveticaNeue,"Helvetica Neue",Helvetica,Arial,sans-serif}h1{margin-top:0;margin-bottom:8px;font-weight:800}@media(min-width:550px){h1{font-size:48px;line-height:80px}}p{margin-bottom:2.5rem;margin-top:0}.avatar{width:128px;height:128px;object-fit:cover;background-position:center;border-radius:50%}.grid{display:grid;place-content:center}</style><div class=grid><div class=container><div class=column style=transform-origin:center;margin-top:0><img alt=${img_alt} class=avatar src=avatar.webp><h1>${title}</h1><p>${description}</p>${links}</div></div></div>`;
-            }
-        </script>
-    </head>
-    <body>
-        <h1>Creating websites similar to Linktree(tm) but free as in freedom!</h1>
-        <textarea id="text_area" rows="10" cols="60" form="form_id">Github: https://github.com/Jontes-Tech/linkfree</textarea>
-        <form id="form_id">
-            <label for="foreground_color">Foreground color</label>
-            <input type="color" id="foreground_color" name="foreground_color" value="#fff8f1"/>
-            <label for="button_color">Button color</label>
-            <input type="color" id="button_color" name="button_color" value="#23b0ff"/>
-            <label for="shadow_color">Button shadow color (make slightly darker than button color)</label>
-            <input type="color" id="shadow_color" name="shadow_color" value="#186ea0"/>
-            <label for="background_color">Background color</label>
-            <input type="color" id="background_color" name="background_color" value="#1d212c"/>
-            <input id="title" type="text" name="title" placeholder="Enter your website title">
-            <input id="short_description" type="text" name="short_description" placeholder="Enter a short description">
-            <input id="description" type="text" name="description" placeholder="Enter a description">
-            <input id="author" type="text" name="author" placeholder="Enter your name">
-            <input id="img_alt" type="text" name="img_alt" placeholder="Enter your image alt text">
-        </form>
-        <button onclick="getOutput()">Make work</button>
-        <br>
-        <code id="output"></code>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linkfree</title>
+  </head>
+  <body>
+    <h1>Creating websites similar to Linktree(tm) but free as in freedom!</h1>
+    <textarea id="text_area" rows="10" cols="60" form="form_id">
+Github: https://github.com/Jontes-Tech/linkfree
+Gitea: https://git.jontes.page/jonte/linkfree</textarea
+    >
+    <form id="form_id">
+      <label for="foreground_color">Foreground color</label>
+      <input
+        type="color"
+        id="foreground_color"
+        name="foreground_color"
+        value="#fff8f1"
+      />
+      <label for="button_color">Button color</label>
+      <input
+        type="color"
+        id="button_color"
+        name="button_color"
+        value="#23b0ff"
+      />
+      <label for="shadow_color"
+        >Button shadow color (make slightly darker than button color)</label
+      >
+      <input
+        type="color"
+        id="shadow_color"
+        name="shadow_color"
+        value="#186ea0"
+      />
+      <label for="background_color">Background color</label>
+      <input
+        type="color"
+        id="background_color"
+        name="background_color"
+        value="#1d212c"
+      />
+      <input
+        id="title"
+        type="text"
+        name="title"
+        placeholder="Enter your website title"
+      />
+      <input
+        id="short_description"
+        type="text"
+        name="short_description"
+        placeholder="Enter a short description"
+      />
+      <input
+        id="description"
+        type="text"
+        name="description"
+        placeholder="Enter a description"
+      />
+      <input
+        id="author"
+        type="text"
+        name="author"
+        placeholder="Enter your name"
+      />
+      const output = document.getElementById("output");
+      <input
+        id="img_alt"
+        type="text"
+        name="img_alt"
+        placeholder="Enter your image alt text"
+      />
+    </form>
+    <button onclick="generate()">Generate</button>
+    <br />
+    <code id="output"></code>
+    <button onclick="download()">Download</button>
+  </body>
+  <script>
+    const output = document.getElementById("output");
+    console.log({ output });
+
+    function generate() {
+      // Text
+      let title = document.getElementById("title").value;
+      let short_description =
+        document.getElementById("short_description").value;
+      let description = document.getElementById("description").value;
+      let author = document.getElementById("author").value;
+      let img_alt = document.getElementById("img_alt").value;
+
+      // Colors
+      let foreground_color = document.getElementById("foreground_color").value;
+      let button_color = document.getElementById("button_color").value;
+      let shadow_color = document.getElementById("shadow_color").value;
+      let background_color = document.getElementById("background_color").value;
+
+      // Links
+      let textbox_lines = document
+        .getElementById("text_area")
+        .value.split(["\n"]);
+
+      const required = [
+        title,
+        short_description,
+        description,
+        author,
+        img_alt,
+        foreground_color,
+        button_color,
+        shadow_color,
+        background_color,
+      ];
+
+      if (required.some((value) => value === "")) {
+        alert("One or more required values are empty");
+        return;
+      }
+
+      let link_urls = [];
+      let link_titles = [];
+      let links = "";
+
+      for (let i = 0; i < textbox_lines.length; i++) {
+        link_titles[i] = textbox_lines[i].split([": "])[0];
+        link_urls[i] = textbox_lines[i].split([": "])[1];
+        links += `<a class="button" href="${link_urls[i]}">${link_titles[i]}</a>`;
+      }
+      output.innerText += `<!DOCTYPE html><html lang=en><meta charset=utf-8><title>${title}</title><meta content=${short_description} name=description><meta content=${author} name=author><meta content="width=device-width,initial-scale=1"name=viewport><link href=favicon.ico rel=icon type=image/ico><style>.button{display:inline-block;text-decoration:none;font-size:18px;width:300px;margin-bottom:1rem;font-weight:700;line-height:48px;letter-spacing:.1px;white-space:wrap;border-radius:8px;cursor:pointer;color:${foreground_color};background-color:${button_color};box-shadow:0 5px 0 ${shadow_color}}.button:active{box-shadow:none;transform:translateY(5px)}.container{position:relative;width:100%;max-width:600px;text-align:center;margin:0 auto;padding:0 20px;box-sizing:border-box}@media(min-width:400px){.container{width:85%;padding:0}}@media(min-width:550px){.container{width:80%}.column{margin-left:0}.column:first-child{margin-left:0}}html{font-size:100%;display:flex;align-items:center;justify-content:center;color-scheme:dark;height:100%;display:flex;align-items:center;justify-content:center}body{font-size:18px;line-height:24px;font-weight:400;background-color:${background_color};font-family:"Open Sans",HelveticaNeue,"Helvetica Neue",Helvetica,Arial,sans-serif}h1{margin-top:0;margin-bottom:8px;font-weight:800}@media(min-width:550px){h1{font-size:48px;line-height:80px}}p{margin-bottom:2.5rem;margin-top:0}.avatar{width:128px;height:128px;object-fit:cover;background-position:center;border-radius:50%}.grid{display:grid;place-content:center}</style><div class=grid><div class=container><div class=column style=transform-origin:center;margin-top:0><img alt=${img_alt} class=avatar src=avatar.webp><h1>${title}</h1><p>${description}</p>${links}</div></div></div>`;
+    }
+
+    function download() {
+      if (output.value === undefined) {
+        alert("You have not generated a website yet");
+        return;
+      }
+
+      const element = document.createElement("a");
+      element.setAttribute(
+        "href",
+        "data:text/plain;charset=utf-8," + encodeURIComponent(output.innerText)
+      );
+      element.setAttribute("download", "index.html");
+
+      element.style.display = "none";
+      document.body.appendChild(element);
+
+      element.click();
+
+      document.body.removeChild(element);
+    }
+  </script>
 </html>
