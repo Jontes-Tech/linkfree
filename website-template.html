@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>${title}</title>
+        <meta content="${short_description}" name="description">
+        <meta content="${author}" name="author">
+        <meta content="width=device-width,initial-scale=1" name="viewport">
+        <link href="favicon.ico" rel="icon" type="image/ico">
+        <style>
+            .button {
+                display: inline-block;
+                text-decoration: none;
+                font-size: 18px;
+                width: 300px;
+                margin-bottom: 1rem;
+                font-weight: 700;
+                line-height: 48px;
+                letter-spacing: 0.1px;
+                white-space: wrap;
+                border-radius: 8px;
+                cursor: pointer;
+                color: ${foreground_color};
+                background-color: ${button_color};
+                box-shadow: 0 5px 0 ${shadow_color};
+            }
+            .button:active {
+                box-shadow: none;
+                transform: translateY(5px)
+            }
+            .container {
+                position: relative;
+                width: 100%;
+                max-width: 600px;
+                text-align: center;
+                margin: 0 auto;
+                padding: 0 20px;
+                box-sizing: border-box
+            }
+            @media(min-width: 400px) {
+                .container {
+                    width: 85%;
+                    padding: 0
+                }
+            }
+            @media(min-width: 550px) {
+                .container {
+                    width: 80%
+                }
+                .column {
+                    margin-left: 0
+                }
+                .column:first-child {
+                    margin-left: 0
+                }
+            }
+            html {
+                font-size: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color-scheme: dark;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center
+            }
+            body {
+                font-size: 18px;
+                line-height: 24px;
+                font-weight: 400;
+                background-color: ${background_color};
+                font-family: "Open Sans", HelveticaNeue, "Helvetica Neue", Helvetica, Arial, sans-serif
+            }
+            h1 {
+                margin-top: 0;
+                margin-bottom: 8px;
+                font-weight: 800
+            }
+            @media(min-width: 550px) {
+                h1 {
+                    font-size: 48px;
+                    line-height: 80px
+                }
+            }
+            p {
+                margin-bottom: 2.5rem;
+                margin-top: 0
+            }
+            .avatar {
+                width: 128px;
+                height: 128px;
+                object-fit: cover;
+                background-position: center;
+                border-radius: 50%
+            }
+            .grid {
+                display: grid;
+                place-content: center
+            }
+        </style>
+    </head>
+    <body>
+        <div class="grid">
+            <div class="container">
+                <div class="column" style="transform-origin:center;margin-top:0px">
+                    <img alt="${img_alt}" class="avatar" src="avatar.webp">
+                    <h1>${title}</h1>
+                    <p>${description}</p>
+                    ${links}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
