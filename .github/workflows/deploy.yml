@@ -1,8 +1,9 @@
 name: Deploy to Edgeserver.io
+
 on:
   push:
     branches:
-      - "master"
+      - "main"
 jobs:
   zip-files:
     runs-on: ubuntu-latest
@@ -15,4 +16,4 @@ jobs:
           app_id: "80308722655563776"
           server: https://api.edgeserver.io
           token: ${{ secrets.SIGNAL_TOKEN }}
-         directory: dist
+          directory: .
