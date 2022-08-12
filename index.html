@@ -78,7 +78,6 @@ Gitea: https://git.jontes.page/jonte/linkfree
   </body>
   <script>
     function generate() {
-      console.log("Hello World")
       // Text
       let title = document.getElementById("title").value;
       let short_description =
@@ -119,6 +118,12 @@ Gitea: https://git.jontes.page/jonte/linkfree
         }
         link_titles[i] = textbox_lines[i].split([": "])[0];
         link_urls[i] = textbox_lines[i].split([": "])[1];
+        for (let i = 0; i < link_urls.length; i++) {
+          if (!link_urls[i].startsWith("https://" || "http://")) {
+            link_urls[i] = 'https://'+link_urls[i]
+            console.log("Added missing https:// to link: " + link_titles[i]);
+          }
+        }
         links += `<a class="button" href="${link_urls[i]}
 ">${link_titles[i]}
     </a>`;
@@ -139,7 +144,6 @@ class=avatar src=avatar.webp><h1>${title}
       document.body.appendChild(element);
       element.click();
       document.body.removeChild(element);
-      console.log(output.innerText);
     }
   </script>
 </html>
