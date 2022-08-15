@@ -43,11 +43,9 @@
           rounded
           transition
           focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
-// Put your links here, examples:
 Site title: https://siteurl.com
 Github: https://github.com/Jontes-Tech/linkfree
-Gitea: https://git.jontes.page/jonte/linkfree
-//Also please delete these lines and put your links in the text area above.</textarea>
+Gitea: https://git.jontes.page/jonte/linkfree</textarea>
           <form id="form_id">
             <label for="foreground_color">Foreground color
             </label>
@@ -109,13 +107,14 @@ Gitea: https://git.jontes.page/jonte/linkfree
         alert("One or more required values are empty");
         return;
       }
+      if (textbox_lines === undefined) {
+        alert("Please change the text area to contain links");
+        return;
+      }
       let link_urls = [];
       let link_titles = [];
       let links = "";
       for (let i = 0; i < textbox_lines.length; i++) {
-        if (textbox_lines[i].startsWith("//")) {
-          continue;
-        }
         link_titles[i] = textbox_lines[i].split([": "])[0];
         link_urls[i] = textbox_lines[i].split([": "])[1];
         for (let i = 0; i < link_urls.length; i++) {
